@@ -2,6 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Mendz</Authors>
+    <Description>Provides a generic Mendz.Data-aware context for ADO.Net-compatible access to Oracle databases.</Description>
+    <Copyright>© 2018 Mendz. All rights reserved.</Copyright>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/etmendz/Mendz.Data.Oracle</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/etmendz/Mendz.Data.Oracle</RepositoryUrl>
+    <PackageTags>data database context ado-net oracle</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.18.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Mendz.Data\Mendz.Data\Mendz.Data.csproj" />
+  </ItemGroup>
 
 </Project>
