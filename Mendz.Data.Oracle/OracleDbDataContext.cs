@@ -10,10 +10,7 @@ namespace Mendz.Data.Oracle
         /// <summary>
         /// Provides the database context for an Oracle database.
         /// </summary>
-        protected override IDbConnection BuildContext()
-        {
-            return new OracleConnection(DataSettingOptions.ConnectionStrings[OracleDataSettingOption.Name]);
-        }
+        protected override IDbConnection BuildContext() => new OracleConnection(DataSettingOptions.ConnectionStrings[OracleDataSettingOption.Name]);
 
         /// <summary>
         /// Creates a context asynchronously.
@@ -23,10 +20,10 @@ namespace Mendz.Data.Oracle
         /// </remarks>
         public async void CreateContextAsync()
         {
-            if (_context == null)
+            if (Context == null)
             {
-                _context = BuildContext();
-                await ((OracleConnection)_context).OpenAsync();
+                Context = BuildContext();
+                await ((OracleConnection)Context).OpenAsync().ConfigureAwait(false);
             }
         }
 
@@ -39,10 +36,10 @@ namespace Mendz.Data.Oracle
         /// </remarks>
         public async void CreateContextAsync(CancellationToken cancellationToken)
         {
-            if (_context == null)
+            if (Context == null)
             {
-                _context = BuildContext();
-                await ((OracleConnection)_context).OpenAsync(cancellationToken);
+                Context = BuildContext();
+                await ((OracleConnection)Context).OpenAsync(cancellationToken).ConfigureAwait(false);
             }
         }
     }
